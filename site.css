@@ -13,7 +13,8 @@
 
 #btn-theme {
     background-color: var(--gray);
-    color: var(--white-2);
+    color: var(--white);
+
 }
 
 body {
