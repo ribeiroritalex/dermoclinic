@@ -1,4 +1,4 @@
-<p align="center"><img src="https://raw.githubusercontent.com/mr-p-oliveira/DermoClinic/master/images/Logo2.svg?token=GHSAT0AAAAAABTFYX2JSANYTWF4LJGATW4OYTVVEOA"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/mr-p-oliveira/DermoClinic/master/images/Logo2.svg?token=GHSAT0AAAAAABTFYX2IR3XBPQJBMQRL6MCAYTVXGIA"></p>
 
 ## Overview
 Portal Projecto ISEP - Telemedicina e Telessaúde 
