@@ -14,4 +14,7 @@ Portal Projecto ISEP - Telemedicina e Telessaúde
 - Landing Page ☑️
   - Header
   - Footer
+- Log-in Page 
+  - Sign in🆕
+  - Log-in 🆕
 > **NOTE:  Alpha Versions  **
