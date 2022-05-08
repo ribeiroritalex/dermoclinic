@@ -17,4 +17,4 @@ Portal Projecto ISEP - Telemedicina e Telessaúde
 - Log-in Page 
   - Sign in🆕
   - Log-in 🆕
-> **NOTE:  Alpha Versions  **
+> **NOTE: [![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/) **
