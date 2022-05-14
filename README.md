@@ -15,6 +15,8 @@ Portal Projecto ISEP - Telemedicina e Telessaúde
   - Header
   - Carousel 🎠
   - Team 🥼
+  - Treatments 👓
+  - Contacts Schedule 📆
   - Footer
 - Log-in Page 
   - Sign in🆕
