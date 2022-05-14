@@ -13,6 +13,8 @@ Portal Projecto ISEP - Telemedicina e Telessaúde
 
 - Landing Page ☑️
   - Header
+  - Carousel 🎠
+  - Team 🥼
   - Footer
 - Log-in Page 
   - Sign in🆕
