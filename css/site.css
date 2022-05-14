@@ -117,6 +117,17 @@ body {
 .page-section {
     padding: 6rem 0;
 }
+.marcacao p{
+    font-size: 12px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.marcacao  span {
+    width: 50%;
+    display: block;
+}
 
 .footer hr {
     width: 80px;
