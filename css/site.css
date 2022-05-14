@@ -68,8 +68,6 @@ body {
 
 .nav-links li {
     list-style-type: none;
-
-
 }
 
 .burger {
@@ -110,10 +108,17 @@ body {
     font-size: 25px;
 
 }
- 
- 
-.footer hr {
+.carousel{
+    height: 50%;
+    max-width: 1366px !important;
+    margin: 0 auto;
+  }
 
+.page-section {
+    padding: 6rem 0;
+}
+
+.footer hr {
     width: 80px;
     height: 3px;
     border: solid white;
