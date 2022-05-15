@@ -1,21 +1,17 @@
-const navSlide = () => {
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('.nav-links');
-    const navLinks = document.querySelectorAll('.nav-links li')
-    burger.addEventListener('click', () => {
-
-        nav.classList.toggle('nav-active');
-  
-         navLinks.forEach((link, index) => {
-            if(link.style.animation){
-                link.style.animation = '';
-             }else{
-                link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7}s`;
-            }
-        
-        });
-        
-    });
-}
-
-navSlide();
+function myfunction() {
+    'use strict';
+    window.addEventListener('load', function() {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var input= document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(input, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (input.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          input.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  };
