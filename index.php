@@ -1,3 +1,11 @@
+<?php
+session_start();
+require_once 'config/db_connection.php';
+require_once 'config/jwt.php';
+require_once 'models/user.php';
+require_once "functions/session_functions.php";
+onSessionRedirect();
+?>
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -5,10 +13,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css\site.css">
+    <link rel="stylesheet" href="css/site.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 
     <title>DermoClinic</title>
@@ -20,7 +27,7 @@
     <nav class="navbar">
         <!--Logo-->
         <a class="navbar-brand" href="#">
-            <img src="images\logo.svg" width="170" height="56,6" alt="">
+            <img src="assets/images/Logo.svg" width="170" height="56,6" alt="">
         </a>
         <ul class="nav-links">
             <li>
@@ -39,7 +46,7 @@
                 <a href="">Contactos</a>
             </li>
             <li>
-                <a href="../DermoClinic/login/lgin.html">Area Pessoal <i class="fa-solid fa-circle-user"></i></a>
+                <a href="login/login.php">Area Pessoal <i class="fa-solid fa-circle-user"></i></a>
             </li>
         </ul>
         <!--Burger 2-->
@@ -65,22 +72,13 @@
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="https://c.pxhere.com/photos/3b/17/waiting_room_doctor_luggage-769856.jpg!d"
-                            class="d-block w-100"
-                            srcset="https://c.pxhere.com/photos/3b/17/waiting_room_doctor_luggage-769856.jpg!d"
-                            alt="home, property, living room, room, apartment, luggage, interior design, design, waiting room, estate, doctor, condominium, real estate, Free Images In PxHere">
+                        <img src="https://c.pxhere.com/photos/3b/17/waiting_room_doctor_luggage-769856.jpg!d" class="d-block w-100" srcset="https://c.pxhere.com/photos/3b/17/waiting_room_doctor_luggage-769856.jpg!d" alt="home, property, living room, room, apartment, luggage, interior design, design, waiting room, estate, doctor, condominium, real estate, Free Images In PxHere">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://c.pxhere.com/photos/5c/63/doctor_medical_medicine_health_stetoscope_healthcare_stethoscope_healthy-917219.jpg!d"
-                            class="d-block w-100"
-                            srcset="https://c.pxhere.com/photos/5c/63/doctor_medical_medicine_health_stetoscope_healthcare_stethoscope_healthy-917219.jpg!d"
-                            alt="pessoa, fêmea, Cuidado, profissão, remédio, saudável, saúde, dentista, dental, mascarar, óculos, hospital, clínica, enfermeira, médico, médico, médico, tratamento, paciente, cuidados de saúde, doença, diagnóstico, estetoscópio, sentido, clínico, cuidados de saúde, Médico generalista, diagnóstico, Stetoscope, Banco de imagens In PxHere">
+                        <img src="https://c.pxhere.com/photos/5c/63/doctor_medical_medicine_health_stetoscope_healthcare_stethoscope_healthy-917219.jpg!d" class="d-block w-100" srcset="https://c.pxhere.com/photos/5c/63/doctor_medical_medicine_health_stetoscope_healthcare_stethoscope_healthy-917219.jpg!d" alt="pessoa, fêmea, Cuidado, profissão, remédio, saudável, saúde, dentista, dental, mascarar, óculos, hospital, clínica, enfermeira, médico, médico, médico, tratamento, paciente, cuidados de saúde, doença, diagnóstico, estetoscópio, sentido, clínico, cuidados de saúde, Médico generalista, diagnóstico, Stetoscope, Banco de imagens In PxHere">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://c.pxhere.com/images/89/e1/f1a5c6ac526cef8efc9c1aaed949-1446749.jpg!d"
-                            class="d-block w-100"
-                            srcset="https://c.pxhere.com/images/89/e1/f1a5c6ac526cef8efc9c1aaed949-1446749.jpg!d"
-                            alt="caucasiano, casaco, médico, Empregados, fêmea, saúde, cuidados de saúde, hispânico, hospital, Dentro de casa, Estagiário, Laboratório, olhando, masculino, homem, médico, remédio, Meados, enfermeira, practitioner, practitioners, Esfrega, serviço, especialista, funcionários, equipe, uniforme, mulher, Trabalhadores, jovem, tecnologia, Tablet digital, exibição, comunicação, conversação, cuidados de saúde, o negócio, aluna, cliente, produtos, colaboração, Banco de imagens In PxHere">
+                        <img src="https://c.pxhere.com/images/89/e1/f1a5c6ac526cef8efc9c1aaed949-1446749.jpg!d" class="d-block w-100" srcset="https://c.pxhere.com/images/89/e1/f1a5c6ac526cef8efc9c1aaed949-1446749.jpg!d" alt="caucasiano, casaco, médico, Empregados, fêmea, saúde, cuidados de saúde, hispânico, hospital, Dentro de casa, Estagiário, Laboratório, olhando, masculino, homem, médico, remédio, Meados, enfermeira, practitioner, practitioners, Esfrega, serviço, especialista, funcionários, equipe, uniforme, mulher, Trabalhadores, jovem, tecnologia, Tablet digital, exibição, comunicação, conversação, cuidados de saúde, o negócio, aluna, cliente, produtos, colaboração, Banco de imagens In PxHere">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -102,16 +100,14 @@
                 <div class="row mt-3">
                     <div class="col-xl d-flex justify-content-center mt-3">
                         <div class="team-member">
-                            <img class="mx-auto rounded-circle mb-2" src="../images/medico1.webp" alt="..."
-                                style="width: 220px; height: 220px;">
+                            <img class="mx-auto rounded-circle mb-2" src="assets/images/medico1.webp" alt="..." style="width: 220px; height: 220px;">
                             <h4>Dr.Botelho Pinto</h4>
                             <p class="text-muted">Dermatologista</p>
                         </div>
                     </div>
                     <div class="col-xl d-flex justify-content-center mt-3">
                         <div class="team-member">
-                            <img class="mx-auto rounded-circle mb-2" src="../images/medico2.jpg" alt="..."
-                                style="width: 220px; height: 220px;">
+                            <img class="mx-auto rounded-circle mb-2" src="assets/images/medico2.jpg" alt="..." style="width: 220px; height: 220px;">
                             <h4>Dr.Armando Pinto</h4>
                             <p class="text-muted">Venereologia</p>
                         </div>
@@ -135,11 +131,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="card mb-4 box-shadow">
-                                <img class="card-img-top"
-                                    data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-                                    alt="Thumbnail [100%x225]" style="height: 250px; width: 100%; display: block;"
-                                    src="https://c.pxhere.com/photos/6c/0f/sunburn_skin_red_flushed_dermatology_burned_skin_irritation_heat-1287389.jpg!d"
-                                    data-holder-rendered="true">
+                                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 250px; width: 100%; display: block;" src="https://c.pxhere.com/photos/6c/0f/sunburn_skin_red_flushed_dermatology_burned_skin_irritation_heat-1287389.jpg!d" data-holder-rendered="true">
                                 <div class="card-body">
                                     <p class="card-text">Dermatologia Geral</p>
                                     <div class="d-flex justify-content-between align-items-center">
@@ -154,11 +146,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card mb-4 box-shadow">
-                                <img class="card-img-top"
-                                    data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-                                    alt="Thumbnail [100%x225]" style="height: 250px; width: 100%; display: block;"
-                                    src="https://c.pxhere.com/photos/f0/af/surgery_surgeon_operation_portrait_face_head_medical_health-1080573.jpg!d"
-                                    data-holder-rendered="true">
+                                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 250px; width: 100%; display: block;" src="https://c.pxhere.com/photos/f0/af/surgery_surgeon_operation_portrait_face_head_medical_health-1080573.jpg!d" data-holder-rendered="true">
                                 <div class="card-body">
                                     <p class="card-text">Dermatoscopia Digital</p>
                                     <div class="d-flex justify-content-between align-items-center">
@@ -173,11 +161,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card mb-4 box-shadow">
-                                <img class="card-img-top"
-                                    data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-                                    alt="Thumbnail [100%x225]" style="height: 250px; width: 100%; display: block;"
-                                    src="https://c.pxhere.com/photos/a8/e6/plant_grass_blossom_summer_season_growth_ecology_botany-1077939.jpg!d"
-                                    data-holder-rendered="true">
+                                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 250px; width: 100%; display: block;" src="https://c.pxhere.com/photos/a8/e6/plant_grass_blossom_summer_season_growth_ecology_botany-1077939.jpg!d" data-holder-rendered="true">
                                 <div class="card-body">
                                     <p class="card-text">Alergologia Cutanea</p>
                                     <div class="d-flex justify-content-between align-items-center">
@@ -291,15 +275,9 @@
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 
 </html>
