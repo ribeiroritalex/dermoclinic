@@ -41,7 +41,7 @@ if ($session_is_valid && $_SESSION["user_role"] !=  User::$USER_ROLE_PATIENT) {
                 <a href="">Histórico de Consultas</a>
             </li>
             <li>
-                <a href="">Marcações</a>
+                <a href="request_appointment/request_appointment.php">Pedir Marcação</a>
             </li>
             <li>
                 <form method="POST">
