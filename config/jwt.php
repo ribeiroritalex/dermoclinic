@@ -40,7 +40,7 @@ class JWT
     public function generate(array $payload): string
     {
         $headers = $this->encode(json_encode($this->headers)); // encode headers
-        $payload["exp"] = time() + 60; // add expiration to payload
+        $payload["exp"] = time() + 60000; // add expiration to payload
         $payload = $this->encode(json_encode($payload)); // encode payload
         $signature = hash_hmac('SHA256', "$headers.$payload", $this->secret, true); // create SHA256 signature
         $signature = $this->encode($signature); // encode signature

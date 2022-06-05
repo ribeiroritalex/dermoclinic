@@ -4,6 +4,7 @@ require_once '../../models/user.php';
 require_once '../../config/db_connection.php';
 require_once '../../config/jwt.php';
 require_once '../../functions/session_functions.php';
+require_once '../../functions/questions_functions.php';
 
 use UserNS\User;
 
@@ -12,8 +13,12 @@ if ($session_is_valid && $_SESSION["user_role"] !=  User::$USER_ROLE_PATIENT) {
     onSessionRedirect();
 }
 
+$listQuestions = getQuestions(0);
+requestAppointment($listQuestions);
 
-
+foreach ($listQuestions as $question) {
+    fromQuestionToInputLine($question);
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -40,22 +45,18 @@ if ($session_is_valid && $_SESSION["user_role"] !=  User::$USER_ROLE_PATIENT) {
                                 <h2 class="fw-bold mb-2 text-white text-uppercase">Login</h2>
                                 <p class="text-white-50 mb-4">Insira o email e password.</p>
                                 <p class="fw-bold text-white">
-                                    
+
 
                                 <form method="post" action="login.php">
-                                    <div class="form-floating mb-4">
+                                    <?php
 
-                                        <input type="email" class="form-control" id="user_email" name="user_email" aria-describedby="emailHelp" placeholder="Enter email" required>
-                                        <label for="floatingInput">Email</label>
-                                        <div class="valid-feedback">
-                                            Looks good!
-                                        </div>
+                                    if (isset($listQuestions)) {
+                                        foreach ($listQuestions as $question) {
+                                            fromQuestionToInputLine($question);
+                                        }
+                                    }
 
-                                    </div>
-                                    <div class="form-floating mb-4">
-                                        <input type="password" class="form-control" id="user_password" name="user_password" placeholder="Password">
-                                        <label for="floatingPassword">Palavra-chave</label>
-                                    </div>
+                                    ?>
 
                                     <input id="request_appointment" name="request_appointment" class="btn btn-outline-light btn-lg px-5 mb-4" type="submit" value="Login" />
 
