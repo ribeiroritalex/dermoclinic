@@ -101,6 +101,7 @@ CREATE TABLE `screening_images` (
   `image_blob` blob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+
 -- --------------------------------------------------------
 
 --
@@ -306,3 +307,9 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+# 06/06/2022 - 23h50
+# also must change my.ini to use:
+#   max_allowed_packet=5M
+ALTER TABLE `screening_images` DROP COLUMN `image_blob`;
+ALTER TABLE `screening_images` ADD `image_blob` LONGBLOB;

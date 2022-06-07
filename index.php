@@ -4,7 +4,7 @@ require_once 'config/db_connection.php';
 require_once 'config/jwt.php';
 require_once 'models/user.php';
 require_once "functions/session_functions.php";
-use DateTime;
+
 onSessionRedirect();
 ?>
 <!DOCTYPE html>

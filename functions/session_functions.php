@@ -11,16 +11,18 @@ function login($user_email, $user_password): bool
 {
     if (isset($_REQUEST["login"])) {
         $db = getDb();
-        $select_stmt = $db->prepare("SELECT email,pwd,`role` from users WHERE email=:uemail");
+        $select_stmt = $db->prepare("SELECT `user_id`,`email`,`pwd`,`role` from users WHERE email=:uemail");
         $select_stmt->bindParam(":uemail", $user_email);
         $select_stmt->execute();
         $result = $select_stmt->fetch(PDO::FETCH_ASSOC);
         while ($result) {
+            $dbuser_id = $result["user_id"];
             $dbuser_email = $result["email"];
             $dbuser_password = $result["pwd"];
             $dbuser_role = $result["role"];
             $pwd_check = password_verify($user_password, $dbuser_password);
             if ($pwd_check) {
+                $_SESSION["user_id"] = $dbuser_id;
                 $_SESSION["user_role"] = $dbuser_role;
                 $_SESSION["user_email"] = $dbuser_email;
                 $_SESSION["user_loginToken"] = generateLoginToken($dbuser_email);

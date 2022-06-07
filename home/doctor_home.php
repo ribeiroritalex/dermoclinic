@@ -38,6 +38,9 @@ if ($session_is_valid && $_SESSION["user_role"] != User::$USER_ROLE_DOCTOR) {
         </a>
         <ul class="nav-links">
             <li>
+                <a href="check_appointment_requests/check_appointment_requests.php">Ver Pedidos de Consulta</a>
+            </li>
+            <li>
                 <form method="POST">
                     <button type="submit" class="btn btn-sm btn-outline-secondary" name="logout">Logout</button>
                 </form>
@@ -57,7 +60,7 @@ if ($session_is_valid && $_SESSION["user_role"] != User::$USER_ROLE_DOCTOR) {
     </div>
     <main id="main">
         <section class="page-section" id="admin-dash">
-            <p class="large text-muted">This is the DOCTOR dashboard. Hello Doctor!</p>
+            <h1 class="large text-muted">This is the DOCTOR dashboard. Hello Doctor!</h1>
         </section>
     </main>
 </body>

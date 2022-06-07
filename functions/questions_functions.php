@@ -18,8 +18,8 @@ function getQuestions($screening_type)
 
 
     $toReturn = [];
-    $aux = $result->fetch(PDO::FETCH_ASSOC);
-    while ($aux) {
+    
+    while ($aux = $result->fetch(PDO::FETCH_ASSOC)) {
         $question = new Question();
         $question->description = $aux["description"];
         $question->screening_type = $aux["screening_type"];
@@ -32,12 +32,28 @@ function getQuestions($screening_type)
 
 function fromQuestionToInputLine($question) : void
 {
-    echo "<div>";
-    echo "<h3>" . ($question->description) . "</h3>";
-    echo '<input type="checkbox" name="' . ($question->question_id) . '" />';
-    echo "</div>";
+    echo "<table>";
+    echo "<tr>";
+    echo "<td>";
+    echo '<input type="checkbox" style="margin-right: 10; text-align: center; vertical-align: start;" name="' . ($question->question_id) . '" />';
+    echo "</td>";
+    echo '<td><p style="color: white;text-align: center; vertical-align: middle;margin:0 auto;" >' . ($question->description) . "</p></td>";
+    echo "</tr>";
+    echo "</table>";
 }
-
+function string_to_blob($str){
+    $bin = "";
+    for($i = 0, $j = strlen($str); $i < $j; $i++) 
+    $bin .= decbin(ord($str[$i])) . " ";
+    echo $bin;
+  }
+  function blob_to_string($bin){
+    $char = explode(' ', $bin);
+    $userStr = '';
+    foreach($char as $ch) 
+    $userStr .= chr(bindec($ch));
+    return $userStr;
+  }
 function requestAppointment($questionsList)
 {
     if(!isset($_SESSION)){
@@ -47,26 +63,51 @@ function requestAppointment($questionsList)
     if (isset($_REQUEST["request_appointment"])) {
         if (isset($_FILES['image'])) {
             $allowed_ext = array('jpg', 'jpeg', 'png', 'gif');
+            // foreach($_FILES['image'] as $aa){
+            //     echo "".$aa;
+            // }
             $file_name = $_FILES['image']['name'];
-            $file_ext = strtolower(end(explode('.', $file_name)));
-
+            // $aux_explode = explode('.', $file_name);
+            // $aux_end = end($aux_explode);
+            // $file_ext = strtolower($aux_end);
+            $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+            
             $file_size = $_FILES['image']['size'];
             $file_tmp = $_FILES['image']['tmp_name'];
+            
             $type = pathinfo($file_tmp, PATHINFO_EXTENSION);
-            $data = file_get_contents($file_ext);
-            $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-
+            
+            $data = file_get_contents($file_tmp);
+            $base64 = 'data:image/' . $type . ';base64, ' . base64_encode($data);
+            
             if (in_array($file_ext, $allowed_ext) === false) {
                 $errors[] = 'Extension not allowed';
             }
 
-            if ($file_size > (2097152*2)) {
+            if ($file_size > (4097152)) {
                 $errors[] = 'File size must be under 4mb';
             }
             if (empty($errors)) {
-                if (move_uploaded_file($file_tmp, 'images/' . $file_name)); {
-                    echo 'File uploaded';
+                if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+                    if (move_uploaded_file($file_tmp, str_replace("/", "\\", $_SERVER['DOCUMENT_ROOT']).'\DermoClinic\images\\'.$file_name)) {
+                        echo "File Uploaded !";
+                       }
+                    
+                } else {
+                    if (move_uploaded_file($file_tmp, $_SERVER['DOCUMENT_ROOT'].'/DermoClinic/images/'.$file_name)) {
+                        echo "File Uploaded !";
+                       }
+                    
                 }
+                //    if (!move_uploaded_file(
+                //     $_FILES['upfile']['tmp_name'],
+                //     sprintf('./uploads/%s.%s',
+                //         sha1_file($_FILES['upfile']['tmp_name']),
+                //         $ext
+                //     )
+                // )) {
+                //     throw new RuntimeException('Failed to move uploaded file.');
+                // }
             } else {
                 foreach ($errors as $error) {
                     echo $error, '<br/>';
@@ -76,7 +117,7 @@ function requestAppointment($questionsList)
         }
 
         $appointment = new Appointment();
-        $appointment->patient_id=$_SESSION["user_email"];
+        $appointment->patient_id=$_SESSION["user_id"];
 
         $db = getDb();
         $insert_stmt = "INSERT INTO `appointment` (`patient_id`) VALUES ( ? );";
@@ -89,16 +130,15 @@ function requestAppointment($questionsList)
         $screening->appointment_id = $appointment->appointment_id;
         $screening->screening_type = 0;
         $screening->patient_id = $appointment->patient_id;
-        $screening->screening_date = new DateTime();
 
         
-        $insert_stmt = "INSERT INTO `screening` (`screening_type`, `appointment_id`, `patient_id`, `screening_date`) VALUES ( ?, ?, ?, ? );";
+        $insert_stmt = "INSERT INTO `screening` (`screening_type`, `appointment_id`, `patient_id`) VALUES ( ?, ?, ? );";
         $insert_stmt_res = $db->prepare($insert_stmt);
-        $insert_stmt_res->execute([$screening->screening_type, $appointment->appointment_id, $screening->patient_id, $screening->screening_date]);
+        $insert_stmt_res->execute([$screening->screening_type, $appointment->appointment_id, $screening->patient_id]);
         
         $screening->screening_id = $db->lastInsertId();
 
-        if(isset($base64)){
+        if(isset($base64) and $base64 != null){
             $screening_image = new ScreeningImage();
             $screening_image->screening_id = $screening->screening_id;
             $screening_image->image_blob = $base64;
@@ -123,6 +163,8 @@ function requestAppointment($questionsList)
             $insert_stmt_res = $db->prepare($insert_stmt);
             $insert_stmt_res->execute([$screening_question->question_id, $screening_question->screening_id, $screening_question->screening_type, $screening_question->answer]);
         }
+
+        // header('Location: /DermoClinic');
     }
 }
 

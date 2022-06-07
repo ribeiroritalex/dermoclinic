@@ -1,6 +1,9 @@
 <?php
+
 namespace QuestionNS;
-class Question{
+
+
+class Question {
 
     public String $description;
     public int $question_id;

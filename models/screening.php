@@ -7,7 +7,7 @@ class ScreeningImage{
 
     public int $image_id;
     public int $screening_id;
-    public int $image_blob;
+    public $image_blob;
 
 }
 
