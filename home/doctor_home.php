@@ -41,6 +41,9 @@ if ($session_is_valid && $_SESSION["user_role"] != User::$USER_ROLE_DOCTOR) {
                 <a href="check_appointment_requests/check_appointment_requests.php">Ver Pedidos de Consulta</a>
             </li>
             <li>
+                <a href="check_appointment_requests/check_appointment_requests.php">Ver Marcações</a>
+            </li>
+            <li>
                 <form method="POST">
                     <button type="submit" class="btn btn-sm btn-outline-secondary" name="logout">Logout</button>
                 </form>
@@ -52,17 +55,18 @@ if ($session_is_valid && $_SESSION["user_role"] != User::$USER_ROLE_DOCTOR) {
             <div class="line2"></div>
             <div class="line3"></div>
         </div>
+        </div>
+    <main id="main">
+        <section class="page-section" id="admin-dash">
+            <h1 class="large text-muted">Bem-vindo, Doutor(a)!</h1>
+        </section>
+    </main>
+</body>
     </nav>
     <div class="banner-image">
         <div class="banner-text">
             <h1>DermoClinic</h1>
         </div>
-    </div>
-    <main id="main">
-        <section class="page-section" id="admin-dash">
-            <h1 class="large text-muted">This is the DOCTOR dashboard. Hello Doctor!</h1>
-        </section>
-    </main>
-</body>
+   
 
 </html>

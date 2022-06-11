@@ -32,22 +32,23 @@ onSessionRedirect();
         </a>
         <ul class="nav-links">
             <li>
-                <a href="">Inicio</a>
+                <a href="">Início</a>
             </li>
             <li>
                 <a href="">A Clínica</a>
             </li>
             <li>
-                <a href="">Diagnostico e Tratamento</a>
+                <a href="">Diagnóstico e Tratamento</a>
             </li>
             <li>
                 <a href="">Marcações</a>
             </li>
             <li>
+
                 <a href="">Contactos</a>
             </li>
             <li>
-                <a href="login/login.php">Area Pessoal <i class="fa-solid fa-circle-user"></i></a>
+                <a href="login/login.php">Área Pessoal <i class="fa-solid fa-circle-user"></i></a>
             </li>
         </ul>
         <!--Burger 2-->
@@ -67,7 +68,7 @@ onSessionRedirect();
             <div class="page-section">
                 <div class="text-center pt-5">
                     <h2 class="section-heading text-uppercase">A Clínica</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted">Conheça as nossas instalações</h3>
                 </div>
             </div>
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -96,28 +97,25 @@ onSessionRedirect();
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">A nossa equipa</h2>
-                    <h3 class="section-subheading text-muted mb-4">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted mb-4">Conheça quem cuidará de si</h3>
                 </div>
                 <div class="row mt-3">
                     <div class="col-xl d-flex justify-content-center mt-3">
                         <div class="team-member">
-                            <img class="mx-auto rounded-circle mb-2" src="assets/images/medico1.webp" alt="..." style="width: 220px; height: 220px;">
-                            <h4>Dr.Botelho Pinto</h4>
+                            <img class="mx-auto rounded-circle mb-2" src="assets/images/rita.png" alt="..." style="width: 220px; height: 220px;">
+                            <h4>Dra. Rita Ribeiro</h4>
                             <p class="text-muted">Dermatologista</p>
                         </div>
                     </div>
                     <div class="col-xl d-flex justify-content-center mt-3">
                         <div class="team-member">
-                            <img class="mx-auto rounded-circle mb-2" src="assets/images/medico2.jpg" alt="..." style="width: 220px; height: 220px;">
-                            <h4>Dr.Armando Pinto</h4>
-                            <p class="text-muted">Venereologia</p>
+                            <img class="mx-auto rounded-circle mb-2" src="assets/images/sara.jpg" alt="..." style="width: 220px; height: 220px;">
+                            <h4>Dra. Sara Gomes</h4>
+                            <p class="text-muted">Dermatologista</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-8 mx-auto text-center">
-                            <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut
-                                eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut
-                                unde.</p>
                         </div>
                     </div>
                 </div>
@@ -126,8 +124,8 @@ onSessionRedirect();
             <div class="album py-5">
                 <div class="container">
                     <div class="text-center">
-                        <h2 class="section-heading text-uppercase">Diagnostico e Tratamento</h2>
-                        <h3 class="section-subheading text-muted mb-4">Lorem ipsum dolor sit amet consectetur.</h3>
+                        <h2 class="section-heading text-uppercase">Diagnóstico e Tratamento</h2>
+                        <h3 class="section-subheading text-muted mb-4">Conheça as nossas áreas de especialização</h3>
                     </div>
                     <div class="row">
                         <div class="col-md-4">
@@ -138,9 +136,7 @@ onSessionRedirect();
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-
-                                        </div>
-                                        <small class="text-muted">9 mins</small>
+                                        </div>   
                                     </div>
                                 </div>
                             </div>
@@ -155,7 +151,6 @@ onSessionRedirect();
                                             <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                                             <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                                         </div>
-                                        <small class="text-muted">9 mins</small>
                                     </div>
                                 </div>
                             </div>
@@ -164,13 +159,12 @@ onSessionRedirect();
                             <div class="card mb-4 box-shadow">
                                 <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 250px; width: 100%; display: block;" src="https://c.pxhere.com/photos/a8/e6/plant_grass_blossom_summer_season_growth_ecology_botany-1077939.jpg!d" data-holder-rendered="true">
                                 <div class="card-body">
-                                    <p class="card-text">Alergologia Cutanea</p>
+                                    <p class="card-text">Alergologia Cutânea</p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                                             <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                                         </div>
-                                        <small class="text-muted">9 mins</small>
                                     </div>
                                 </div>
                             </div>
@@ -184,38 +178,24 @@ onSessionRedirect();
                 <div class="row no-gutters">
                     <div class="col-md-3 p-4 text-white" style="background-color: teal;">
                         <h3 class="mb-4">Casos Urgentes</h3>
-                        <p>A small river named Duden flows by their place and supplies</p>
-                        <span class="phone-number">22 834 0500</span>
+                        <p>Por favor, para urgências de dermatologia ligue:</p>
+                        <span class="phone-number">228 340 500</span>
                     </div>
                     <div class="col-md-3 color-2 p-4">
-                        <h3 class="mb-4">Horarios</h3>
+                        <h3 class="mb-4">Horários</h3>
                         <p class="d-flex w-100">
-                            <span>Segunda - Sexta</span>
-                            <span>8:00 - 19:00</span>
+                            <span>Segunda a Sexta</span>
+                            <span>8:00 - 20:00</span>
                         </p>
                         <p class="d-flex w-100">
-                            <span>Sabado</span>
-                            <span>10:00 - 17:00</span>
+                            <span>Sábado</span>
+                            <span>9:00 - 13:00</span>
                         </p>
                         <p class=" d-flex w-100">
-                            <span>Domingo</span>
-                            <span>10:00 - 16:00</span>
+                            <span>Domingos e Feriados</span>
+                            <span>Encerrado</span>
                         </p>
-                    </div>
-                    <div class="col-md-6 color-3 p-4">
-                        <h3 class="mb-2">Visite-nos</h3>
-                        <form action="#" class="appointment-form">
-                            <div class="row">
-                                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-                                    unorthographic life One day however a small line of blind text by the name of Lorem
-                                    Ipsum decided to leave for the far World of Grammar. Because there were thousands of
-                                    bad Commas, wild Question Marks and devious Semikoli</p>
-                                <ul class="mb-5" style="list-style:none;">
-                                    <li><i class="fa fa-check" aria-hidden="true"></i> Consectetur adipisicing elit</li>
-                                    <li><i class="fa fa-check" aria-hidden="true"></i> Adipisci repellat accusamus</li>
-                                    <li><i class="fa fa-check" aria-hidden="true"></i> Tempore reprehenderit vitae</li>
-                                </ul>
-                            </div>
+                   
                         </form>
                     </div>
                 </div>
@@ -227,30 +207,22 @@ onSessionRedirect();
         <div class="container  text-md-left">
             <div class="row text-center text-md-left">
                 <div class="col-md-3 col-lg-3 col-xl-3 mx-auto p-4">
-                    <h6 class="p-4">Sobre Nos</h6>
+                    <h6 class="p-4">Sobre Nós</h6>
                     <hr>
                     <p>A Clínica de Dermatologia DermoClinic dedica-se inteiramente ao diagnóstico e tratamento das
                         doenças da pele, cabelo e unhas, dispondo de um corpo clínico que trabalha e se dedica desde
-                        2022</p>
+                        2022.</p>
                 </div>
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto p-4">
-                    <h6 class="p-4">Especialidades</h6>
-                    <hr>
-                    <p>
-                        <a href="#" class="text-white" style="text-decoration: none;">Dermatologia</a>
-                    </p>
-                    <p>
-                        <a href="#" class="text-white" style="text-decoration: none;">Venereologia</a>
-                    </p>
                 </div>
                 <div class="col-md-4 col-lg-5 col-xl-3 mx-auto p-4">
-                    <h6 class="p-4">Links Uteis</h6>
+                    <h6 class="p-4">Links Úteis</h6>
                     <hr>
                     <p>
-                        <a href="#" class="text-white" style="text-decoration: none;">Horarios</a>
+                        <a href="#" class="text-white" style="text-decoration: none;">Horários</a>
                     </p>
                     <p>
-                        <a href="#" class="text-white" style="text-decoration: none;">Termos e Condicoes</a>
+                        <a href="#" class="text-white" style="text-decoration: none;">Termos e Condições</a>
                     </p>
                 </div>
                 <div class="col-md-4 col-lg-5 col-xl-3 mx-auto p-4">
@@ -259,9 +231,9 @@ onSessionRedirect();
                     <p>
                         <i class="fas fa-home mr-3"></i> R. Dr. António Bernardino de Almeida 431, 4200-072 Porto
                     </p>
-                    <p><i class="fas fa-phone mr-3"></i> 22 834 0500 +351 22 83 21 159
+                    <p><i class="fas fa-phone mr-3"></i> +351 228 340 500
                     </p>
-                    <p><i class="fas fa-envelope mr-3"></i> geral@dermoClinic.pt
+                    <p><i class="fas fa-envelope mr-3"></i> geral@dermoclinic.pt
                     </p>
                 </div>
             </div>

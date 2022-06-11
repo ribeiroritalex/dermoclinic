@@ -34,14 +34,14 @@ onSessionRedirect();
 <body>
 
     <section class="vh-100 gradient-custom">
-        <div class="container py-5 h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
+      
+            <div class="row d-flex justify-content-center align-items-center" style="margin-top: 25px;margin-bottom: 25px;">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                     <div class="card bg-dark " style="border-radius: 2rem;">
                         <div class="card-body p-5 text-center">
 
                             <div class="mb-md-5 mt-md-2 mx-md-5 pb-5">
-                                <img src="..\images\Logo2.svg" class="mb-5" alt="">
+                                <img src="../assets/images/Logo2.svg" class="mb-5" alt="">
                                 <h2 class="fw-bold mb-2 text-white text-uppercase  mb-4">Registo</h2>
                                 <div>
                                     <p class="fw-bold text-white">
@@ -59,19 +59,19 @@ onSessionRedirect();
 
                                             $errorMsg = "";
                                             if ($user_email == null or $user_email == "") {
-                                                $errorMsg = "Please enter an email address.";
+                                                $errorMsg = "Por favor, insira o seu endereço de email.";
                                             } else
                 if ($user_password == null or $user_password == "") {
-                                                $errorMsg = "Please enter a password.";
+                                                $errorMsg = "Por favor, insira a password.";
                                             } else
                 if ($user_password != $user_confirm_password) {
-                                                $errorMsg = "Passwords don't match";
+                                                $errorMsg = "As passwords não coincidem!";
                                             } else
                 if ($user_gender == null or $user_gender == "") {
-                                                $errorMsg = "Please enter your gender.";
+                                                $errorMsg = "Por favor, insira o género.";
                                             } else
                 if ($user_name == null or $user_name == "") {
-                                                $errorMsg = "Please enter your name.";
+                                                $errorMsg = "Por favor, insira o seu nome.";
                                             }
                                             console_log("errorMsg");
                                             console_log($errorMsg);
@@ -84,16 +84,19 @@ onSessionRedirect();
                                                     console_log($result);
 
                                                     if ($result) {
-                                                        $errorMsg = "Success";
-                                                        header('Location: /DermoClinic/login/login.php');
+                                                        $errorMsg = "Registo efetuado com sucesso!";
+
                                                     } else {
-                                                        $errorMsg = "Error processing request";
+                                                        $errorMsg = "Algo correu mal...";
                                                     }
                                                 } catch (PDOException $e) {
                                                     $e->getMessage();
                                                 }
                                             }
+                                            
+                                            //header('Location: /DermoClinic/login/login.php');
                                             echo $errorMsg;
+                                           
                                         }
                                         ?>
 
@@ -128,6 +131,13 @@ onSessionRedirect();
 
                                     <input class="btn btn-outline-light btn-lg px-5" name="register" type="submit" value="Registar" />
                                 </form>
+                                <br/>
+                                <a href="terms_and_conditions.php" style="color: white;">Ao realizar o registo está a concordar com estes Termos e Condições.</a> 
+                            </div>
+
+                            <div>
+                                <p class="mb-0 text-white-50">Já está registado? <a href="../login/login.php" class="text-white-50 fw-bold">Login</a>
+                                </p>
                             </div>
 
                         </div>

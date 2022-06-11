@@ -33,12 +33,13 @@ onSessionRedirect();
 </head>
 
 <body>
-    <section class="vh-100">
-        <div class="container py-5 h-100" style="background-color: teal;">
+    <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-100" style="background-color: SteelBlue;">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                    <div class="card bg-dark " style="border-radius: 1rem;">
+                    <div class="card bg-dark " style="border-radius: 2rem;">
                         <div class="card-body p-5 text-center">
+
                             <div class="login100-form-title">
                                 <img src="../assets/images/Logo2.svg" class="mb-5" alt="">
                                 <h2 class="fw-bold mb-2 text-white text-uppercase">Login</h2>
@@ -63,21 +64,21 @@ onSessionRedirect();
                                                     if ($login_success) {
                                                         onSessionRedirect();
                                                     } else {
-                                                        $errorMsg = "Email and password combination not found.";
+                                                        $errorMsg = "Combinação de email e password não encontrada.";
                                                     }
                                                 } else {
-                                                    $errorMsg = "Please enter a password.";
+                                                    $errorMsg = "Por favor, insira a password.";
                                                 }
                                             } else {
-                                                $errorMsg = "Please enter an email address.";
+                                                $errorMsg = "Por favor, insira o seu endereço de e-mail.";
                                             }
                                         } else {
-                                            $errorMsg = "Please enter both an email and password.";
+                                            $errorMsg = "Por favor, insira o seu e-mail e password.";
                                         }
                                         if (isset($errorMsg) && $errorMsg != "") {
                                             echo $errorMsg;
                                         } else {
-                                            echo "Success!";
+                                            echo "Sucesso!";
                                         }
                                     }
 
@@ -105,8 +106,7 @@ onSessionRedirect();
 
 
                             <div>
-                                <p class="mb-0 text-white-50">Don't have an account? <a href="../register/register.php" class="text-white-50 fw-bold">Sign
-                                        Up</a>
+                                <p class="mb-0 text-white-50">Não está registado? <a href="../register/register.php" class="text-white-50 fw-bold">Crie uma conta</a>
                                 </p>
                             </div>
 

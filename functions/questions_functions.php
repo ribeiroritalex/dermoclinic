@@ -90,12 +90,12 @@ function requestAppointment($questionsList)
             if (empty($errors)) {
                 if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
                     if (move_uploaded_file($file_tmp, str_replace("/", "\\", $_SERVER['DOCUMENT_ROOT']).'\DermoClinic\images\\'.$file_name)) {
-                        echo "File Uploaded !";
+                        // echo "File Uploaded !";
                        }
                     
                 } else {
                     if (move_uploaded_file($file_tmp, $_SERVER['DOCUMENT_ROOT'].'/DermoClinic/images/'.$file_name)) {
-                        echo "File Uploaded !";
+                        // echo "File Uploaded !";
                        }
                     
                 }
