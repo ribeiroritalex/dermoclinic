@@ -16,16 +16,16 @@ if ($session_is_valid && $_SESSION["user_role"] !=  User::$USER_ROLE_DOCTOR) {
     onSessionRedirect();
 }
 
-$listAppointmentRequests = getAppointmentRequests();
-$result = scheduleAppointment($listAppointmentRequests);
+$listAppointments = getAppointments();
+$result = scheduleAppointment($listAppointments);
 if ($result) {
-    $listAppointmentRequests = getAppointmentRequests();
+    $listAppointments = getAppointments();
     unset($user_screening);
     unset($_REQUEST);
     unset($result);
 }
 
-$user_screening = checkScreening($listAppointmentRequests);
+$user_screening = checkScreening($listAppointments);
 
 ?>
 <!DOCTYPE html>
@@ -40,7 +40,7 @@ $user_screening = checkScreening($listAppointmentRequests);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title>DermoClinic | Pedidos de Consulta</title>
+    <title>DermoClinic | Marcações</title>
 </head>
 
 <body>
@@ -63,20 +63,20 @@ $user_screening = checkScreening($listAppointmentRequests);
         </div>
     </nav>
     <section class="vh-100">
-        <div class="container py-5 h-100" style="background-color: teal;">
+        <div class="container py-5 h-100" style="background-color: SteelBlue;">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-9">
                     <div class="card bg-dark " style="border-radius: 1rem;">
                         <div class="card-body p-5 text-center">
                             <div class="login100-form-title">
                                 <img src="../assets/images/Logo2.svg" class="mb-5" alt="">
-                                <h2 class="fw-bold mb-2 text-white text-uppercase">Pedidos de Consulta</h2>
-                                <p class="text-white-50 mb-4">Abaixo encontram-se todos os pedidos de consulta realizados e que ainda não foram aprovados.</p>
+                                <h2 class="fw-bold mb-2 text-white text-uppercase">Consultas</h2>
+                                <p class="text-white-50 mb-4">Abaixo encontram-se todas as marcações de consultas.</p>
                                 <p class="fw-bold text-white">
 
                                     <?php
-                                    if (isset($listAppointmentRequests)) {
-                                        fromAppointmentRequestToInputLine($listAppointmentRequests);
+                                    if (isset($listAppointments)) {
+                                        fromAppointmentsToInputLine($listAppointments);
                                     }
                                     ?>
 

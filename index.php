@@ -35,17 +35,14 @@ onSessionRedirect();
                 <a href="">Início</a>
             </li>
             <li>
-                <a href="">A Clínica</a>
+                <a href="#clinica">A Clínica</a>
             </li>
             <li>
-                <a href="">Diagnóstico e Tratamento</a>
-            </li>
-            <li>
-                <a href="">Marcações</a>
+                <a href="#diagtrat">Diagnóstico e Tratamento</a>
             </li>
             <li>
 
-                <a href="">Contactos</a>
+                <a href="#contactos">Contactos</a>
             </li>
             <li>
                 <a href="login/login.php">Área Pessoal <i class="fa-solid fa-circle-user"></i></a>
@@ -64,7 +61,7 @@ onSessionRedirect();
         </div>
     </div>
     <main id="main">
-        <section id="about" class="about pt-5">
+        <section id="clinica" class="about pt-5">
             <div class="page-section">
                 <div class="text-center pt-5">
                     <h2 class="section-heading text-uppercase">A Clínica</h2>
@@ -120,7 +117,7 @@ onSessionRedirect();
                     </div>
                 </div>
         </section>
-        <section class="tratamentos">
+        <section class="tratamentos" id="diagtrat">
             <div class="album py-5">
                 <div class="container">
                     <div class="text-center">
@@ -176,12 +173,12 @@ onSessionRedirect();
         <section class="marcacao">
             <div class="container">
                 <div class="row no-gutters">
-                    <div class="col-md-3 p-4 text-white" style="background-color: teal;">
+                    <div class="col-md-3 p-4 text-white" style="background-color: SteelBlue;">
                         <h3 class="mb-4">Casos Urgentes</h3>
                         <p>Por favor, para urgências de dermatologia ligue:</p>
                         <span class="phone-number">228 340 500</span>
                     </div>
-                    <div class="col-md-3 color-2 p-4">
+                    <div class="col-md-3 color-2 p-4" id="horarios">
                         <h3 class="mb-4">Horários</h3>
                         <p class="d-flex w-100">
                             <span>Segunda a Sexta</span>
@@ -219,13 +216,13 @@ onSessionRedirect();
                     <h6 class="p-4">Links Úteis</h6>
                     <hr>
                     <p>
-                        <a href="#" class="text-white" style="text-decoration: none;">Horários</a>
+                        <a href="#horarios" class="text-white" style="text-decoration: none;">Horários</a>
                     </p>
                     <p>
-                        <a href="#" class="text-white" style="text-decoration: none;">Termos e Condições</a>
+                        <a href="register/terms_and_conditions.php" class="text-white" style="text-decoration: none;">Termos e Condições</a>
                     </p>
                 </div>
-                <div class="col-md-4 col-lg-5 col-xl-3 mx-auto p-4">
+                <div class="col-md-4 col-lg-5 col-xl-3 mx-auto p-4" id="contactos">
                     <h6 class="p-4">Contactos</h6>
                     <hr>
                     <p>

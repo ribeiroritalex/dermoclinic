@@ -63,7 +63,7 @@ $user_screening = checkScreening($listAppointmentRequests);
         </div>
     </nav>
     <section class="vh-100">
-        <div class="container py-5 h-100" style="background-color: teal;">
+        <div class="container py-5 h-100" style="background-color: SteelBlue;">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-9">
                     <div class="card bg-dark " style="border-radius: 1rem;">

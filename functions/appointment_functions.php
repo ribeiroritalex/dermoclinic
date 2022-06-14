@@ -11,6 +11,16 @@ class AppReq
     public DateTime $screening_date;
 }
 
+class AppointmentDTO
+{
+    public int $patient_id;
+    public int $appointment_id;
+    public int $screening_id;
+    public string $patient_name;
+    public DateTime $appointment_date;
+    public DateTime $screening_date;
+}
+
 class UserScreening
 {
 
@@ -30,7 +40,7 @@ class UserScreeningAnswers
 function getAppointmentRequests()
 {
 
-    $select_stmt = "SELECT a.appointment_id , u.user_id , u.name , s.screening_id , s.screening_date FROM `appointment` as a, `users` as u, `screening` as s WHERE a.doctor_id is NULL and a.appointment_id = s.appointment_id and a.patient_id = u.user_id;";
+    $select_stmt = "SELECT a.appointment_id , u.user_id , u.name , s.screening_id , s.screening_date FROM `appointment` as a, `users` as u, `screening` as s WHERE a.doctor_id is NULL and a.appointment_id = s.appointment_id and a.patient_id = u.user_id  ORDER BY s.screening_date;";
 
     $db = getDb();
     $result = $db->prepare($select_stmt);
@@ -45,6 +55,32 @@ function getAppointmentRequests()
         $appointment->patient_name = $aux["name"];
         $appointment->screening_id = $aux["screening_id"];
         $appointment->screening_date = DateTime::createFromFormat("Y-m-d H:i:s", $aux["screening_date"]);
+
+        array_push($toReturn, $appointment);
+    }
+    return $toReturn;
+}
+
+function getAppointments()
+{
+
+    $select_stmt = "SELECT a.appointment_id ,a.appointment_date,s.screening_date, u.user_id , u.name , s.screening_id FROM `appointment` as a, `users` as u, `screening` as s WHERE a.doctor_id=:docId and a.appointment_id = s.appointment_id and a.patient_id = u.user_id ORDER BY a.appointment_date;";
+
+    $db = getDb();
+    $result = $db->prepare($select_stmt);
+    $result->bindParam(":docId", $_SESSION['user_id']);
+    $result->execute();
+
+    $toReturn = [];
+
+    while ($aux = $result->fetch(PDO::FETCH_ASSOC)) {
+        $appointment = new AppointmentDTO();
+        $appointment->appointment_id = $aux["appointment_id"];
+        $appointment->patient_id = $aux["user_id"];
+        $appointment->patient_name = $aux["name"];
+        $appointment->screening_id = $aux["screening_id"];
+        $appointment->appointment_date  = DateTime::createFromFormat("Y-m-d H:i:s", $aux["appointment_date"]);
+        $appointment->screening_date  = DateTime::createFromFormat("Y-m-d H:i:s", $aux["screening_date"]);
 
         array_push($toReturn, $appointment);
     }
@@ -70,6 +106,22 @@ function fromAppointmentRequestToInputLine($appointments): void
     }
 }
 
+function fromAppointmentsToInputLine($appointments): void
+{
+    if (isset($appointments) and count($appointments) > 0) {
+        echo "<form><table> <tr style=\"color: white; \"> <th> <div style=\"margin-left:10;margin-right:10;\">Nome do Utente</div> </th> <th> <div style=\"margin-left:10;margin-right:10;\">Data da Consulta </th> </div> <th> <div style=\"margin-left:10;margin-right:10;\">Ver Screening</div> </th> </tr>";
+        foreach ($appointments as $appointment) {
+            echo "<tr style=\"color: white;\">";
+            echo "<td><p style=\"color: white;text-align: center; vertical-align: middle;margin:0 auto;\" >" . ($appointment->patient_name) . "</p></td>";
+            echo "<td><p style=\"color: white;text-align: center; vertical-align: middle;margin:0 auto;\" >" . (($appointment->appointment_date)->format("Y-m-d H:i")) . "</p></td>";
+            echo "<td><input style=\"display: block; margin: auto;\" class=\"btn btn-sm btn-outline-secondary\" type=\"submit\" name=\"check_data_" . ($appointment->appointment_id) . "\" id=\"checkData\" value=\"Ver\"/></td>";
+            echo "</tr>";
+        }
+        echo "</table></form>";
+    }else{
+        echo "<p class=\"text-white\">Não existem pedidos de consulta para aprovar.</p>";
+    }
+}
 
 function checkScreening($appointments)
 {

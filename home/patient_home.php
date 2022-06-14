@@ -56,6 +56,10 @@ if ($session_is_valid && $_SESSION["user_role"] !=  User::$USER_ROLE_PATIENT) {
             <div class="line3"></div>
         </div>
     </nav>
+
+    <section class="page-section">
+            <h1 class="large text-muted">Bem-vindo/a!</h1>
+        </section>
     <div class="banner-image">
         <div class="banner-text">
             <h1>DermoClinic</h1>

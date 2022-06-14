@@ -55,7 +55,7 @@ requestAppointment($listQuestions);
         </div>
     </nav>
     <section class="vh-100">
-        <div class="container py-5 h-100" style="background-color: teal;">
+        <div class="container py-5 h-100" style="background-color: SteelBlue;">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                     <div class="card bg-dark " style="border-radius: 1rem;">
@@ -73,7 +73,7 @@ requestAppointment($listQuestions);
                                         
                                         <br>
                                     <br>
-                                    <p class="text-white">Responda às seguintes questões:
+                                    <p class="text-white">Indique os seus sintomas e a região do corpo
                                  <?php
 
                                     if (isset($listQuestions)) {
