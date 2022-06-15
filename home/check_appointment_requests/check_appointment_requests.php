@@ -48,7 +48,7 @@ $user_screening = checkScreening($listAppointmentRequests);
     <nav class="navbar">
         <!--Logo-->
         <a class="navbar-brand" href="#">
-            <img src="../../assets/images/Logo.svg" width="170" height="56,6" alt="">
+            <img src="../../assets/images/logo.svg" width="170" height="56,6" alt="">
         </a>
         <ul class="nav-links">
             <li>
