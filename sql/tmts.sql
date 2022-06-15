@@ -313,3 +313,7 @@ COMMIT;
 #   max_allowed_packet=5M
 ALTER TABLE `screening_images` DROP COLUMN `image_blob`;
 ALTER TABLE `screening_images` ADD `image_blob` LONGBLOB;
+
+# 14/06/2022 - 17h56
+ALTER TABLE `prescription` ADD `prescription_description` varchar(255);
+ALTER TABLE `prescription` ADD `prescription_observations` varchar(255);

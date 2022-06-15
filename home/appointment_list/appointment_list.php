@@ -17,14 +17,6 @@ if ($session_is_valid && $_SESSION["user_role"] !=  User::$USER_ROLE_DOCTOR) {
 }
 
 $listAppointments = getAppointments();
-$result = scheduleAppointment($listAppointments);
-if ($result) {
-    $listAppointments = getAppointments();
-    unset($user_screening);
-    unset($_REQUEST);
-    unset($result);
-}
-
 $user_screening = checkScreening($listAppointments);
 
 ?>
@@ -101,7 +93,6 @@ $user_screening = checkScreening($listAppointments);
 
                                 if (isset($user_screening->imageAttached)) {
                                     echo '<div><p class="text-white"><string>Image Attached</strong></p><img  style="display:block; width:600px;" src="'.($user_screening->imageAttached).'" alt="Attached Image" /></div>';
-                                    
                                 }else{
                                     echo "<p class=\"text-white\">-- Sem documentos adicionados --";
                                 }

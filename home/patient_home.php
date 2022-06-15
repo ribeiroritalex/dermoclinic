@@ -38,7 +38,7 @@ if ($session_is_valid && $_SESSION["user_role"] !=  User::$USER_ROLE_PATIENT) {
         </a>
         <ul class="nav-links">
             <li>
-                <a href="">Histórico de Consultas</a>
+                <a href="appointment_history/appointment_history.php">Histórico de Consultas</a>
             </li>
             <li>
                 <a href="request_appointment/request_appointment.php">Pedir Marcação</a>

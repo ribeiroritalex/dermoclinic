@@ -44,6 +44,9 @@ if ($session_is_valid && $_SESSION["user_role"] != User::$USER_ROLE_DOCTOR) {
                 <a href="appointment_list/appointment_list.php">Ver Marcações</a>
             </li>
             <li>
+                <a href="appointment_history/appointment_history.php">Histórico</a>
+            </li>
+            <li>
                 <form method="POST">
                     <button type="submit" class="btn btn-sm btn-outline-secondary" name="logout">Logout</button>
                 </form>
