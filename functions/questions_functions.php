@@ -110,10 +110,10 @@ function requestAppointment($questionsList)
                 // }
             } else {
                 foreach ($errors as $error) {
-                    echo $error, '<br/>';
+                    //echo $error, '<br/>';
                 }
             }
-            
+           
         }
 
         $appointment = new Appointment();
@@ -164,6 +164,9 @@ function requestAppointment($questionsList)
             $insert_stmt_res->execute([$screening_question->question_id, $screening_question->screening_id, $screening_question->screening_type, $screening_question->answer]);
         }
 
+        echo "Formulário submetido com sucesso!
+        Pedido de marcação de consulta efetuado.";
+        
         // header('Location: /DermoClinic');
     }
 }

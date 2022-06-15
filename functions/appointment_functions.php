@@ -27,7 +27,7 @@ class AppFinish
     public string $observations;
     public float $height;
     public float $weight;
-    public float $bloodPressure;
+    public string $bloodPressure;
     public  $prescriptions = [];
 }
 

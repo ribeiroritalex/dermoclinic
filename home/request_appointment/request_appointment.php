@@ -17,7 +17,6 @@ if ($session_is_valid && $_SESSION["user_role"] !=  User::$USER_ROLE_PATIENT) {
 }
 
 $listQuestions = getQuestions(0);
-requestAppointment($listQuestions);
 
 ?>
 <!DOCTYPE html>
@@ -68,13 +67,16 @@ requestAppointment($listQuestions);
 
                                     <form action="request_appointment.php" method="post" enctype="multipart/form-data" >
                                         
-                                        <p class="text-white">Envie-nos um ficheiro (<4MB):    
+                                        <p class="text-white">Envie uma foto do local dos sintomas (<4MB):    
                                         <input type="file" class="btn" style="color: orange;" name="image" id="image">
                                         
                                         <br>
                                     <br>
+                                    <p style="font-size: 20px; color: SteelBlue;"><strong><?php requestAppointment($listQuestions); ?></strong></p>
                                     <p class="text-white">Indique os seus sintomas e a região do corpo
                                  <?php
+
+                    
 
                                     if (isset($listQuestions)) {
                                         foreach ($listQuestions as $question) {

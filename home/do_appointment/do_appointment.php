@@ -102,7 +102,7 @@ $result = finishAppointment();
                                         <p style="color: white;">Peso (kg)</p>
                                         <input type="number" class="form-control" name="weight" id="weight" placeholder="Peso (kg)" step="0.1" min="1" , max="400"></input>
                                         <p style="color: white;">Pressão arterial (mm Hg)</p>
-                                        <input type="number" class="form-control" name="bloodPressure" id="bloodPressure" placeholder="Pressão arterial (mm Hg)" min="1" , max="350"></input>
+                                        <input type="text" class="form-control" name="bloodPressure" id="bloodPressure" placeholder="Pressão arterial (mmHg)"></input>
                                         <br />
                                         <p style="color: white;">Observações da Consulta</p>
                                         <textarea class="form-control" style="width:100%;" id="observations" name="observations" rows="8" placeholder="Insira aqui as observações da consulta"></textarea>
